@@ -1,7 +1,6 @@
 # NodeJS
 node_modules
 dist
-scratchpad
 
 # Private configs
 .env
@@ -80,3 +79,7 @@ Icon?
 ._*
 .Spotlight-V100
 .Trashes
+
+# Local folders
+scratchpad/*
+!scratchpad/.gitkeep
