@@ -1,5 +1,5 @@
 {
-  "name": "Address API Service",
+  "name": "PKI Certificate Management",
   "image": "brakmic/cppdev-devcontainer:latest",
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/host_workspace,type=bind,consistency=cached",
