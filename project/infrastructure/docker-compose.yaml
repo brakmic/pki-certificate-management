@@ -1,0 +1,38 @@
+name: infrastructure
+services:
+  cfssl:
+    image: cfssl/cfssl:latest
+    container_name: cfssl
+    command: >
+      serve
+      -ca-key /etc/cfssl/ca-key.pem
+      -ca /etc/cfssl/ca.pem
+      -config /etc/cfssl/config.json
+      -address 0.0.0.0
+    volumes:
+      - ./cfssl/config:/etc/cfssl
+    ports:
+      - "8888:8888"
+  freeipa:
+    image: freeipa/freeipa-server:fedora-41
+    container_name: freeipa
+    hostname: freeipa.internal.acme.com
+    environment:
+      - IPA_SERVER_INSTALL_OPTS=--unattended --realm=INTERNAL.ACME.COM --domain=internal.acme.com -p password -a password --no-ntp --no-host-dns
+      - TZ=UTC
+    ports:
+      - "80:80"      # HTTP
+      - "443:443"    # HTTPS
+      - "389:389"    # LDAP
+      - "636:636"    # LDAPS
+      - "88:88"      # Kerberos (TCP)
+      - "464:464"    # Kerberos password change (TCP)
+      - "88:88/udp"  # Kerberos (UDP)
+      - "464:464/udp" # Kerberos password change (UDP)
+    volumes:
+      - freeipa-data:/data
+    tty: true
+    stdin_open: true
+    privileged: true
+volumes:
+  freeipa-data:

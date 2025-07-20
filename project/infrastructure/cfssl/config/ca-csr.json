@@ -1,0 +1,5 @@
+{
+  "CN": "My CFSSL CA",
+  "key": {"algo": "rsa", "size": 4096},
+  "names": [{"C": "DE", "L": "Bonn", "O": "ACME", "OU": "IT", "ST": "NRW"}]
+}

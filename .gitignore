@@ -1,0 +1,82 @@
+# NodeJS
+node_modules
+dist
+scratchpad
+
+# Private configs
+.env
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.obj
+*.cache
+*.mdb
+*.vspscc
+*.user
+*.suo
+*.sln.docstates
+
+# .NET build results
+bin/
+obj/
+TestResults/
+*.coverage
+*.coveragexml
+*.ncrunch*
+*.nuget/
+*.vs/
+*.sln.docstates
+*.csproj.user
+
+# Rider/Resharper
+.idea/
+*.DotSettings.user
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# C/C++
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.gch
+
+# General binaries and logs
+*.class
+*.swp
+*.swo
+*.tmp
+*.bak
+*.log
+*.core
+*.bin
+*.dat
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+.Spotlight-V100
+.Trashes

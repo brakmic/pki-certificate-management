@@ -1,0 +1,6 @@
+{
+  "CN": "web-server.acme.com",
+  "hosts": ["web-server.acme.com"],
+  "key": {"algo": "rsa", "size": 2048},
+  "names": [{"C": "DE", "O": "ACME"}]
+}

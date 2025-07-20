@@ -1,0 +1,38 @@
+{
+  "name": "Address API Service",
+  "image": "brakmic/cppdev-devcontainer:latest",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/host_workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.exclude": {
+          "**/.git": true,
+          "**/.DS_Store": true
+        }
+      }
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer/setup-workspace.mjs,target=/workspace/.devcontainer/setup-workspace.mjs,type=bind",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "forwardPorts": [
+    8080, // HTTP
+    5500, // HTTP
+    3000 // HTTP
+  ],
+  "initializeCommand": "docker network inspect devnetwork >/dev/null 2>&1 || docker network create devnetwork",
+  "runArgs": [
+    "--network=devnetwork",
+    "--add-host=host.docker.internal:host-gateway",
+    "--add-host=desktop-control-plane:host-gateway", // use as server name in .kube/config when using KinD
+    "--add-host=docker-for-desktop:host-gateway" // use as server name in .kube/config when using kubeadm
+  ],
+  "postCreateCommand": "node /workspace/.devcontainer/setup-workspace.mjs && ln -sf /workspace/dev.code-workspace /home/cppdev/.vscode-server/dev.code-workspace",
+  "remoteUser": "cppdev",
+  "containerEnv": {
+    "NODE_OPTIONS": "",
+    "HOST_WORKSPACE": "${localWorkspaceFolder}"
+  }
+}
