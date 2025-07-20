@@ -1,4 +1,4 @@
-# Secure PKI Certificate Management with mTLS: FreeIPA, CFSSL, and .NET
+# PKI Certificate Management with mTLS: FreeIPA, CFSSL, and .NET
 
 ## Overview
 
