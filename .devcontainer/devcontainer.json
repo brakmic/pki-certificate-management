@@ -22,7 +22,7 @@
     5500, // HTTP
     3000 // HTTP
   ],
-  "initializeCommand": "docker network inspect devnetwork >/dev/null 2>&1 || docker network create devnetwork",
+  "initializeCommand": "make -C .devcontainer init-network",
   "runArgs": [
     "--network=devnetwork",
     "--add-host=host.docker.internal:host-gateway",
